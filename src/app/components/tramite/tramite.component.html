@@ -1,0 +1,18 @@
+
+
+  <nav mat-tab-nav-bar mat-align-tabs="center">
+    <a mat-tab-link
+       [routerLink]="['/tramite/licencia']"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive">
+      Licencia
+    </a>
+    <a mat-tab-link
+       [routerLink]="['/tramite/justificacion']"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive">
+      Justificacion
+    </a>
+  </nav>
+
+<router-outlet></router-outlet>

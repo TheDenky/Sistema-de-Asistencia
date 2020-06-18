@@ -1,0 +1,75 @@
+<br>
+<div class="row">
+    <div class="col">
+      <input class="form-control" matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar..." >
+    </div>
+    <div class="col">
+      <button type="button" class="btn btn-outline-success btn-block" 
+      data-toggle="modal" data-target="#exampleModal">Nueva Licencia <i class="fas fa-plus"></i></button>
+    </div>
+  </div>
+    
+  <br>
+  
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+  
+      
+      <ng-container matColumnDef="IdPers">
+        <th mat-header-cell *matHeaderCellDef> Id persona </th>
+        <td mat-cell *matCellDef="let element"> {{element.IdPers}} </td>
+      </ng-container>
+  
+      
+      <ng-container matColumnDef="tipoLice">
+        <th mat-header-cell *matHeaderCellDef> Tipo Licencia </th>
+        <td mat-cell *matCellDef="let element"> {{element.tipoLice}} </td>
+      </ng-container>
+  
+      
+      <ng-container matColumnDef="motiLice">
+        <th mat-header-cell *matHeaderCellDef> Motivo </th>
+        <td mat-cell *matCellDef="let element"> {{element.motiLice}} </td>
+      </ng-container>
+  
+      
+      <ng-container matColumnDef="fechInicLice">
+        <th mat-header-cell *matHeaderCellDef> Fecha Inicio </th>
+        <td mat-cell *matCellDef="let element"> {{element.fechInicLice | date }} </td>
+      </ng-container>
+  
+      
+      <ng-container matColumnDef="fechFinLice">
+        <th mat-header-cell *matHeaderCellDef> Fecha Fin </th>
+        <td mat-cell *matCellDef="let element"> {{element.fechFinLice }} </td>
+      </ng-container>
+  
+     
+      <ng-container matColumnDef="obseLice">
+        <th mat-header-cell *matHeaderCellDef> Observacion </th>
+        <td mat-cell *matCellDef="let element"> {{element.obseLice}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="docuLice">
+        <th mat-header-cell *matHeaderCellDef> documento </th>
+        <td mat-cell *matCellDef="let element"> <button type="button" class="btn btn-outline-primary"> 
+          <i class="fas fa-file-pdf"></i></button>
+        </td>
+      </ng-container>
+  
+      
+      <ng-container matColumnDef="ACTION">
+        <th mat-header-cell *matHeaderCellDef> Editar </th>
+        <td mat-cell *matCellDef="let element">
+          <button type="button" class="btn btn-outline-warning" 
+          data-toggle="modal" data-target="#exampleModal"> <i class="fas fa-edit"></i></button> 
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+  

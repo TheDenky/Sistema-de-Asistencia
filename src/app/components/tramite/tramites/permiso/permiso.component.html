@@ -1,0 +1,74 @@
+<br>
+<div class="row">
+    <div class="col">
+      <input class="form-control" matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar..." >
+    </div>
+    <div class="col">
+      <button type="button" class="btn btn-outline-success btn-block" 
+      data-toggle="modal" data-target="#exampleModal">Nuevo Permiso <i class="fas fa-plus"></i></button>
+    </div>
+  </div>
+    
+  <br>
+  
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+  
+      
+      <ng-container matColumnDef="IdPers">
+        <th mat-header-cell *matHeaderCellDef> Id persona </th>
+        <td mat-cell *matCellDef="let element"> {{element.IdPers}} </td>
+      </ng-container>
+  
+      
+      <ng-container matColumnDef="horaPerm">
+        <th mat-header-cell *matHeaderCellDef> hora </th>
+        <td mat-cell *matCellDef="let element"> {{element.horaPerm}} </td>
+      </ng-container>
+  
+      
+      <ng-container matColumnDef="minutoPerm">
+        <th mat-header-cell *matHeaderCellDef> minuto </th>
+        <td mat-cell *matCellDef="let element"> {{element.minutoPerm}} </td>
+      </ng-container>
+  
+      
+      <ng-container matColumnDef="fechPerm">
+        <th mat-header-cell *matHeaderCellDef> fecha </th>
+        <td mat-cell *matCellDef="let element"> {{element.fechPerm | date }} </td>
+      </ng-container>
+  
+      
+      <ng-container matColumnDef="obsePerm">
+        <th mat-header-cell *matHeaderCellDef> observacion </th>
+        <td mat-cell *matCellDef="let element"> {{element.obsePerm}} </td>
+      </ng-container>
+  
+     
+      <ng-container matColumnDef="motiPerm">
+        <th mat-header-cell *matHeaderCellDef> motivo </th>
+        <td mat-cell *matCellDef="let element"> {{element.motiPerm}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="docuPerm">
+        <th mat-header-cell *matHeaderCellDef> documento </th>
+        <td mat-cell *matCellDef="let element"> <button type="button" class="btn btn-outline-primary"> 
+          <i class="fas fa-file-pdf"></i></button>
+        </td>
+      </ng-container>
+  
+      
+      <ng-container matColumnDef="ACTION">
+        <th mat-header-cell *matHeaderCellDef> Editar </th>
+        <td mat-cell *matCellDef="let element">
+          <button type="button" class="btn btn-outline-warning" 
+          data-toggle="modal" data-target="#exampleModal"> <i class="fas fa-edit"></i></button> 
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>

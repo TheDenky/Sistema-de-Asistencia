@@ -1,11 +1,69 @@
 
-<!-- START Modal -->
+
+<br>
+<div class="row">
+    <div class="col">
+      <input class="form-control" matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar..." >
+    </div>
+    <div class="col">
+      <button type="button" class="btn btn-outline-success btn-block" 
+      data-toggle="modal" data-target="#ventanaModal2">Nueva Justificación <i class="fas fa-plus"></i></button>
+    </div>
+  </div>
+    
+  <br>
+  
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+  
+      
+      <ng-container matColumnDef="IdPers">
+        <th mat-header-cell *matHeaderCellDef> Id persona </th>
+        <td mat-cell *matCellDef="let element"> {{element.IdPers}} </td>
+      </ng-container>
+  
+      
+      <ng-container matColumnDef="descJust">
+        <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+        <td mat-cell *matCellDef="let element"> {{element.descJust}} </td>
+      </ng-container>
+
+      
+      <ng-container matColumnDef="fechJust">
+        <th mat-header-cell *matHeaderCellDef> Fecha Justificacion </th>
+        <td mat-cell *matCellDef="let element"> {{element.fechJust | date }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="docuJust">
+        <th mat-header-cell *matHeaderCellDef> documento </th>
+        <td mat-cell *matCellDef="let element"> <button type="button" class="btn btn-outline-primary"> 
+          <i class="fas fa-file-pdf"></i></button>
+        </td>
+      </ng-container>
+  
+      
+      <ng-container matColumnDef="ACTION">
+        <th mat-header-cell *matHeaderCellDef> Editar </th>
+        <td mat-cell *matCellDef="let element">
+          <button type="button" class="btn btn-outline-warning" 
+          data-toggle="modal" data-target="#exampleModal"> <i class="fas fa-edit"></i></button> 
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+
+  <!-- START Modal -->
 <main class="container">
-  <div class="modal" id="ventanaModal" tabindex="-1" role="dialog" aria-labelledby="tituloVentana" aria-hidden="true">
+  <div class="modal" id="ventanaModal2" tabindex="-1" role="dialog" aria-labelledby="tituloVentana" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document"><!--modal-lg ancho del modal--> 
      <div class="modal-content">
       <div class="modal-header">
-         <h2 id=tituloVentana>INSTITUCIÓN</h2>
+         <h2 id=tituloVentana>JUSTIFICACION</h2>
          <button class="close" data-dismiss="modal" aria-label="Cerrar">
            <span aria-hidden="true">&times;</span>
          </button>
@@ -85,78 +143,3 @@
   </div>
 </main>
  <!--FINAL DEL MODAL-->
-
-  <div class="row">
-    <div class="col">
-      <input class="form-control" matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar Institucion">
-    </div>
-    <div class="col">
-      <button type="button" class="btn btn-outline-success btn-block" 
-      data-toggle="modal" data-target="#ventanaModal">Agregar Institucion <i class="fas fa-plus"></i></button>
-    </div>
-    
-  </div>
-<br>
-
-<div class="mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource">
-
-    <!-- Codigo Modular Column -->
-    <ng-container matColumnDef="codModular">
-      <th mat-header-cell *matHeaderCellDef> Codigo Modular </th>
-      <td mat-cell *matCellDef="let element"> {{element.codModular}} </td>
-    </ng-container>
-
-    <!-- Nombre Column -->
-    <ng-container matColumnDef="nombre">
-      <th mat-header-cell *matHeaderCellDef> Nombre </th>
-      <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
-    </ng-container>
-
-    <!-- Direccion  Column -->
-    <ng-container matColumnDef="direccion">
-      <th mat-header-cell *matHeaderCellDef> Direccion </th>
-      <td mat-cell *matCellDef="let element"> {{element.direccion}} </td>
-    </ng-container>
-
-    <!-- Numero Column -->
-    <ng-container matColumnDef="numero">
-      <th mat-header-cell *matHeaderCellDef> Numero </th>
-      <td mat-cell *matCellDef="let element"> {{element.numero}} </td>
-    </ng-container>
-
-    <!-- Nivel Column -->
-    <ng-container matColumnDef="nivel">
-      <th mat-header-cell *matHeaderCellDef> Nivel </th>
-      <td mat-cell *matCellDef="let element"> {{element.nivel}} </td>
-    </ng-container>
-
-    <!-- Modalidad Column -->
-    <ng-container matColumnDef="modalidad">
-      <th mat-header-cell *matHeaderCellDef> Modalidad </th>
-      <td mat-cell *matCellDef="let element"> {{element.modalidad}} </td>
-    </ng-container>
-
-    <!-- Turno Column -->
-    <ng-container matColumnDef="turno">
-      <th mat-header-cell *matHeaderCellDef> Turno </th>
-      <td mat-cell *matCellDef="let element"> {{element.turno}} </td>
-    </ng-container>
-
-    <!-- action Column -->
-    <ng-container matColumnDef="ACTION">
-      <th mat-header-cell *matHeaderCellDef> EDITAR </th>
-      <td mat-cell *matCellDef="let element">
-        <button type="button" class="btn btn-outline-warning" 
-        data-toggle="modal" data-target="#ventanaModal"> <i class="fas fa-edit"></i></button> 
-        </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-</div>
-
-

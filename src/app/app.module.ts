@@ -13,7 +13,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
-import { MatPaginatorModule } from '@angular/material/paginator'
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { TramiteComponent } from './components/tramite/tramite.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { PermisoComponent } from './components/tramite/tramites/permiso/permiso.component';
+import { LicenciaComponent } from './components/tramite/tramites/licencia/licencia.component';
+import { VacacionesComponent } from './components/tramite/tramites/vacaciones/vacaciones.component';
+import { JustificacionComponent } from './components/tramite/tramites/justificacion/justificacion.component';
+
+
 
 @NgModule({
   declarations: [
@@ -23,7 +31,12 @@ import { MatPaginatorModule } from '@angular/material/paginator'
     LoginComponent,
     PersonalComponent,
     RegistroComponent,
-    HomeComponent
+    HomeComponent,
+    TramiteComponent,
+    PermisoComponent,
+    LicenciaComponent,
+    VacacionesComponent,
+    JustificacionComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +45,8 @@ import { MatPaginatorModule } from '@angular/material/paginator'
 
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
