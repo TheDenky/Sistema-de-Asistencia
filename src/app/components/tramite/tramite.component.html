@@ -13,6 +13,18 @@
        [active]="rla.isActive">
       Justificacion
     </a>
+    <a mat-tab-link
+       [routerLink]="['/tramite/permiso']"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive">
+      Permiso
+    </a>
+    <a mat-tab-link
+       [routerLink]="['/tramite/vacaciones']"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive">
+      Vacaciones
+    </a>
   </nav>
 
 <router-outlet></router-outlet>

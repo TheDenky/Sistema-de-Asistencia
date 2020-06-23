@@ -9,6 +9,7 @@ import { TramiteComponent } from './components/tramite/tramite.component';
 import { LicenciaComponent } from './components/tramite/tramites/licencia/licencia.component';
 import { PermisoComponent } from './components/tramite/tramites/permiso/permiso.component';
 import { JustificacionComponent } from './components/tramite/tramites/justificacion/justificacion.component';
+import { VacacionesComponent } from './components/tramite/tramites/vacaciones/vacaciones.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: "tramite/licencia", component: LicenciaComponent},
   {path: "tramite/permiso", component: PermisoComponent},
   {path: "tramite/justificacion", component: JustificacionComponent},
+  {path: "tramite/vacaciones", component: VacacionesComponent},
   {path: '**', component: HomeComponent}
 ];
 

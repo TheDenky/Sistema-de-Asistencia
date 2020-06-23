@@ -5,7 +5,7 @@
     </div>
     <div class="col">
       <button type="button" class="btn btn-outline-success btn-block" 
-      data-toggle="modal" data-target="#exampleModal">Nuevo Permiso <i class="fas fa-plus"></i></button>
+      data-toggle="modal" data-target="#ventanaModal2">Nuevo Permiso <i class="fas fa-plus"></i></button>
     </div>
   </div>
     
@@ -72,3 +72,68 @@
   
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
   </div>
+
+  <!-- START Modal -->
+<main class="container">
+  <div class="modal" id="ventanaModal2" tabindex="-1" role="dialog" aria-labelledby="tituloVentana" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document"><!--modal-lg ancho del modal--> 
+     <div class="modal-content">
+      <div class="modal-header">
+         <h2 id=tituloVentana>Permiso</h2>
+         <button class="close" data-dismiss="modal" aria-label="Cerrar">
+           <span aria-hidden="true">&times;</span>
+         </button>
+        
+      </div>
+      <!--START MODAL BODY-->
+      <div class="modal-body">
+           <div class="alert alert-success">
+                 <main class="container">
+                   <form>
+                      <div class="form-group">
+                            <input type="number" class="form-control" placeholder="Id Persona">
+                      </div>
+                      
+                      <div class="form-group">
+                        <input type="number" class="form-control" placeholder="Hora">
+                      </div>
+                      <div class="form-group">
+                        <input type="number" class="form-control" placeholder="Minuto">
+                      </div>
+                      <div class="form-group" >
+                        <input type="date" name="bday" max="3000-12-31" min="1000-01-01" class="form-control">
+                      </div>
+                      <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Observación">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Motivo">
+                      </div>                      
+                      <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                          </div>
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile01"
+                              aria-describedby="inputGroupFileAddon01">
+                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                          </div>
+                        </div>
+                      </div> 
+                                           
+                   </form>
+                </main>
+           </div>
+        </div>
+        <!--FINAL MODAL BODY-->
+ 
+        <div class="modal-footer">
+          <button class="btn btn-outline-secondary" type="button" data-dismiss="modal"> Cerrar </button>
+          <button class="btn btn-outline-success" type="button"> Guardar </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+ <!--FINAL DEL MODAL-->

@@ -63,7 +63,7 @@
     <div class="modal-dialog modal-dialog-scrollable" role="document"><!--modal-lg ancho del modal--> 
      <div class="modal-content">
       <div class="modal-header">
-         <h2 id=tituloVentana>JUSTIFICACION</h2>
+         <h2 id=tituloVentana>Justificación</h2>
          <button class="close" data-dismiss="modal" aria-label="Cerrar">
            <span aria-hidden="true">&times;</span>
          </button>
@@ -75,59 +75,26 @@
                  <main class="container">
                    <form>
                       <div class="form-group">
-                            <input type="number" class="form-control" placeholder="Código Modular">
+                            <input type="number" class="form-control" placeholder="Id persona">
                       </div>
                       <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Intitución">
+                            <input type="text" class="form-control" placeholder="Descripción">
+                      </div>
+                      <div class="form-group" >
+                        <input type="date" name="bday" max="3000-12-31" min="1000-01-01" class="form-control">
                       </div>
                       <div class="form-group">
-                        <input type="number" class="form-control" placeholder="Número">
-                      </div>
-                      <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Dirección">
-                      </div>
-                      <div class="form-group col-md-12">
-                        <select id="inputState" class="form-control">
-                          <option selected>Region...</option>
-                          <option>...</option>
-                        </select>
-                      </div>
-                      <div class="form-group col-md-12">
-                        <select id="inputState" class="form-control">
-                          <option selected>Provincia...</option>
-                          <option>...</option>
-                        </select>
-                      </div>
-                      <div class="form-group col-md-12">
-                        <select id="inputState" class="form-control">
-                          <option selected>Distrito...</option>
-                          <option>...</option>
-                        </select>
-                      </div>
-                      <div class="form-group col-md-14">
-                        <select id="inputState" class="form-control">
-                          <option selected>Nivel...</option>
-                          <option>Primaria</option>
-                          <option>Secundaria</option>
-                          <option>Superior</option>
-                        </select>
-                      </div>
-                      <div class="form-group col-md-14">
-                        <select id="inputState" class="form-control">
-                          <option selected>Modalidad...</option>
-                          <option>EBR</option>
-                          <option>CEBA</option>
-                          <option>CEPRO</option>
-                        </select>
-                      </div>
-                      <div class="form-group col-md-14">
-                        <select id="inputState" class="form-control">
-                          <option selected>Turno...</option>
-                          <option>Mañana</option>
-                          <option>Tarde</option>
-                          <option>Noche</option>
-                        </select>
-                      </div>                      
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                          </div>
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile01"
+                              aria-describedby="inputGroupFileAddon01">
+                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                          </div>
+                        </div>
+                      </div>              
                    </form>
                 </main>
            </div>
