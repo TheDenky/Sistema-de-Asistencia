@@ -9,6 +9,9 @@ const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
 const indexRoutes_1 = __importDefault(require("./routes/indexRoutes"));
 const pruebaRoutes_1 = __importDefault(require("./routes/pruebaRoutes"));
+const personalRoutes_1 = __importDefault(require("./routes/personalRoutes"));
+var bodyParser = require('body-parser');
+var app = express_1.default();
 //difinicion de la clase para el lado del servidor 
 class Server {
     constructor() {
@@ -23,12 +26,13 @@ class Server {
     }
     //difinir las rutas detscl servidor 
     routes() {
+        this.app.use(bodyParser.json());
+        this.app.use(bodyParser.urlencoded({ extended: false }));
         this.app.use('/', indexRoutes_1.default);
         this.app.use('/api/prueba', pruebaRoutes_1.default);
+        this.app.use('/api/personal', personalRoutes_1.default);
         this.app.use(morgan_1.default('dev'));
         this.app.use(cors_1.default());
-        this.app.use(express_1.default.json());
-        this.app.use(express_1.default.urlencoded({ extended: false }));
     }
     //iniciar el servidor
     start() {

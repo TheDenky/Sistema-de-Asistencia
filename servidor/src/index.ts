@@ -4,12 +4,19 @@ import morgan from 'morgan';
 import cors from 'cors';
 import indexRoutes from './routes/indexRoutes';
 import pruebaRoutes from './routes/pruebaRoutes';
+import personalRoutes from './routes/personalRoutes';
+import { triggerAsyncId } from 'async_hooks';
+
+var bodyParser = require('body-parser')
+var app = express()
 
 
 //difinicion de la clase para el lado del servidor 
 class Server{
+    
 
     public app: Application;
+    
 
     constructor(){
     //inicializa express
@@ -23,12 +30,14 @@ class Server{
     }
     //difinir las rutas detscl servidor 
     routes():void{
+        this.app.use(bodyParser.json());
+        this.app.use(bodyParser.urlencoded({extended:false}));
         this.app.use('/',indexRoutes);
-        this.app.use('/api/prueba',pruebaRoutes)
+        this.app.use('/api/prueba',pruebaRoutes);
+        this.app.use('/api/personal', personalRoutes);
         this.app.use(morgan('dev'));
         this.app.use(cors());
-        this.app.use(express.json());
-        this.app.use(express.urlencoded({extended:false}));
+        
     }
     //iniciar el servidor
     start():void{
