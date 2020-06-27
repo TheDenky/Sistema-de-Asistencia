@@ -13,7 +13,7 @@ class PersonalController{
         const { id } = req.params;
         const unaPersona = await pool.query('SELECT * FROM personal WHERE idPers = ?', [id]);
 
-        if(unaPersona.lenght > 0){
+        if(unaPersona.length > 0){
             return res.json(unaPersona[0]);
         }
         //console.log(unaPersona);

@@ -12,50 +12,45 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.personalController = void 0;
+exports.vacacionesController = void 0;
 const database_1 = __importDefault(require("../database"));
-class PersonalController {
-    list(req, res) {
+class VacacionesController {
+    listarVacaciones(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            //res.json({text: 'listing personal'})
-            const personalLista = yield database_1.default.query('SELECT * FROM personal');
-            res.json(personalLista);
+            const licenciaLista = yield database_1.default.query('SELECT * FROM vacaciones');
+            res.json(licenciaLista);
         });
     }
-    getOnePersonal(req, res) {
+    getOneVacacion(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            //res.json({text: 'This is a personal' + req.params.id})
             const { id } = req.params;
-            const unaPersona = yield database_1.default.query('SELECT * FROM personal WHERE idPers = ?', [id]);
-            if (unaPersona.length > 0) {
-                return res.json(unaPersona[0]);
+            const unaVacacion = yield database_1.default.query('SELECT * FROM vacaciones WHERE idVaca = ?', [id]);
+            if (unaVacacion.length > 0) {
+                return res.json(unaVacacion[0]);
             }
-            //console.log(unaPersona);
-            res.status(404).json({ text: "El personal no existe" });
+            res.status(404).json({ text: 'La Vacacion no existe' });
         });
     }
-    create(req, res) {
+    crearVacacion(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO personal set ?', [req.body]);
+            yield database_1.default.query('INSERT INTO vacaciones set ?', [req.body]);
             console.log(req.body);
-            res.json({ message: 'Personal Created' });
+            res.json({ message: 'Vacacion creada' });
         });
     }
-    update(req, res) {
+    modificarVacacion(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            //res.json({ text: 'updating a personal' + req.params.id });
             const { id } = req.params;
-            yield database_1.default.query('UPDATE personal set ? WHERE idPers = ?', [req.body, id]);
-            res.json({ message: 'El personal fue actualizado' });
+            yield database_1.default.query('UPDATE vacaciones set ? WHERE idVaca = ?', [req.body, id]);
+            res.json({ message: 'La Vacacion fue Actualizada' });
         });
     }
-    delete(req, res) {
+    borrarVacacion(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            //res.json({text: 'deleting a personal' + req.params.id });
             const { id } = req.params;
-            yield database_1.default.query('DELETE FROM personal WHERE idPers = ?', [id]);
-            res.json({ message: 'El personal ha sido eliminado' });
+            yield database_1.default.query('DELETE FROM vacaciones WHERE idVaca = ?', [id]);
+            res.json({ message: 'La vacacion ha sido borrada' });
         });
     }
 }
-exports.personalController = new PersonalController;
+exports.vacacionesController = new VacacionesController;

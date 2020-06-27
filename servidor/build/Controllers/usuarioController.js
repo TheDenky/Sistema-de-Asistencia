@@ -12,50 +12,45 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.personalController = void 0;
+exports.usuarioController = void 0;
 const database_1 = __importDefault(require("../database"));
-class PersonalController {
-    list(req, res) {
+class UsuarioController {
+    listarUsuario(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            //res.json({text: 'listing personal'})
-            const personalLista = yield database_1.default.query('SELECT * FROM personal');
-            res.json(personalLista);
+            const UsuarioLista = yield database_1.default.query('SELECT * FROM usuario');
+            res.json(UsuarioLista);
         });
     }
-    getOnePersonal(req, res) {
+    getOneUsuario(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            //res.json({text: 'This is a personal' + req.params.id})
             const { id } = req.params;
-            const unaPersona = yield database_1.default.query('SELECT * FROM personal WHERE idPers = ?', [id]);
-            if (unaPersona.length > 0) {
-                return res.json(unaPersona[0]);
+            const unUsuario = yield database_1.default.query('SELECT * FROM usuario WHERE idPers = ?', [id]);
+            if (unUsuario.length > 0) {
+                return res.json(unUsuario[0]);
             }
-            //console.log(unaPersona);
-            res.status(404).json({ text: "El personal no existe" });
+            res.status(404).json({ text: 'El usuario no existe' });
         });
     }
-    create(req, res) {
+    crearUsuario(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO personal set ?', [req.body]);
+            yield database_1.default.query('INSERT INTO usuario set ?', [req.body]);
             console.log(req.body);
-            res.json({ message: 'Personal Created' });
+            res.json({ message: 'Usuario creado' });
         });
     }
-    update(req, res) {
+    modificarUsuario(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            //res.json({ text: 'updating a personal' + req.params.id });
             const { id } = req.params;
-            yield database_1.default.query('UPDATE personal set ? WHERE idPers = ?', [req.body, id]);
-            res.json({ message: 'El personal fue actualizado' });
+            yield database_1.default.query('UPDATE usuario set ? WHERE idPers = ?', [req.body, id]);
+            res.json({ message: 'El usuario fue Actualizado' });
         });
     }
-    delete(req, res) {
+    borrarUsuario(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            //res.json({text: 'deleting a personal' + req.params.id });
             const { id } = req.params;
-            yield database_1.default.query('DELETE FROM personal WHERE idPers = ?', [id]);
-            res.json({ message: 'El personal ha sido eliminado' });
+            yield database_1.default.query('DELETE FROM usuario WHERE idPers = ?', [id]);
+            res.json({ message: 'El usuario ha sido borrado' });
         });
     }
 }
-exports.personalController = new PersonalController;
+exports.usuarioController = new UsuarioController;

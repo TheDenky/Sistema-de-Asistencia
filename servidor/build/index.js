@@ -10,6 +10,13 @@ const cors_1 = __importDefault(require("cors"));
 const indexRoutes_1 = __importDefault(require("./routes/indexRoutes"));
 const pruebaRoutes_1 = __importDefault(require("./routes/pruebaRoutes"));
 const personalRoutes_1 = __importDefault(require("./routes/personalRoutes"));
+const institucionRoutes_1 = __importDefault(require("./routes/institucionRoutes"));
+const justificacionRoutes_1 = __importDefault(require("./routes/justificacionRoutes"));
+const licenciaRoutes_1 = __importDefault(require("./routes/licenciaRoutes"));
+const permisoRoutes_1 = __importDefault(require("./routes/permisoRoutes"));
+const vacacionesRoutes_1 = __importDefault(require("./routes/vacacionesRoutes"));
+const usuarioRoutes_1 = __importDefault(require("./routes/usuarioRoutes"));
+const asistenciaRoutes_1 = __importDefault(require("./routes/asistenciaRoutes"));
 var bodyParser = require('body-parser');
 var app = express_1.default();
 //difinicion de la clase para el lado del servidor 
@@ -31,6 +38,13 @@ class Server {
         this.app.use('/', indexRoutes_1.default);
         this.app.use('/api/prueba', pruebaRoutes_1.default);
         this.app.use('/api/personal', personalRoutes_1.default);
+        this.app.use('/api/institucion', institucionRoutes_1.default);
+        this.app.use('/api/justificacion', justificacionRoutes_1.default);
+        this.app.use('/api/licencia', licenciaRoutes_1.default);
+        this.app.use('/api/permiso', permisoRoutes_1.default);
+        this.app.use('/api/vacaciones', vacacionesRoutes_1.default);
+        this.app.use('/api/asistencia', asistenciaRoutes_1.default);
+        this.app.use('/api/usuario', usuarioRoutes_1.default);
         this.app.use(morgan_1.default('dev'));
         this.app.use(cors_1.default());
     }

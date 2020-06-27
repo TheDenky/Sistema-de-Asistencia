@@ -12,50 +12,45 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.personalController = void 0;
+exports.asistenciaController = void 0;
 const database_1 = __importDefault(require("../database"));
-class PersonalController {
-    list(req, res) {
+class AsistenciaController {
+    listarAsistencia(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            //res.json({text: 'listing personal'})
-            const personalLista = yield database_1.default.query('SELECT * FROM personal');
-            res.json(personalLista);
+            const asistenciaLista = yield database_1.default.query('SELECT * FROM asistencia');
+            res.json(asistenciaLista);
         });
     }
-    getOnePersonal(req, res) {
+    getOneAsistencia(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            //res.json({text: 'This is a personal' + req.params.id})
             const { id } = req.params;
-            const unaPersona = yield database_1.default.query('SELECT * FROM personal WHERE idPers = ?', [id]);
-            if (unaPersona.length > 0) {
-                return res.json(unaPersona[0]);
+            const unaAsistencia = yield database_1.default.query('SELECT * FROM asistencia WHERE idAsis = ?', [id]);
+            if (unaAsistencia.length > 0) {
+                return res.json(unaAsistencia[0]);
             }
-            //console.log(unaPersona);
-            res.status(404).json({ text: "El personal no existe" });
+            res.status(404).json({ text: 'La asistencia no existe' });
         });
     }
-    create(req, res) {
+    crearAsistencia(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO personal set ?', [req.body]);
+            yield database_1.default.query('INSERT INTO asistencia set ?', [req.body]);
             console.log(req.body);
-            res.json({ message: 'Personal Created' });
+            res.json({ message: 'Asistencia creada' });
         });
     }
-    update(req, res) {
+    modificarAsistencia(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            //res.json({ text: 'updating a personal' + req.params.id });
             const { id } = req.params;
-            yield database_1.default.query('UPDATE personal set ? WHERE idPers = ?', [req.body, id]);
-            res.json({ message: 'El personal fue actualizado' });
+            yield database_1.default.query('UPDATE asistencia set ? WHERE idAsis = ?', [req.body, id]);
+            res.json({ message: 'La Asistencia fue Actualizada' });
         });
     }
-    delete(req, res) {
+    borrarAsistencia(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            //res.json({text: 'deleting a personal' + req.params.id });
             const { id } = req.params;
-            yield database_1.default.query('DELETE FROM personal WHERE idPers = ?', [id]);
-            res.json({ message: 'El personal ha sido eliminado' });
+            yield database_1.default.query('DELETE FROM asistencia WHERE idAsis = ?', [id]);
+            res.json({ message: 'La asistencia ha sido borrada' });
         });
     }
 }
-exports.personalController = new PersonalController;
+exports.asistenciaController = new AsistenciaController;
