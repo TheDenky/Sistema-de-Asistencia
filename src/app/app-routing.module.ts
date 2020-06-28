@@ -14,6 +14,7 @@ import { VacacionesComponent } from './components/tramite/tramites/vacaciones/va
 
 const routes: Routes = [
   {path: "login", component: LoginComponent},
+  {path: "home", component: HomeComponent},
   {path: "personal", component: PersonalComponent},
   {path: "institucion", component: InstitucionComponent},
   {path: "registro", component: RegistroComponent},
@@ -22,7 +23,7 @@ const routes: Routes = [
   {path: "tramite/permiso", component: PermisoComponent},
   {path: "tramite/justificacion", component: JustificacionComponent},
   {path: "tramite/vacaciones", component: VacacionesComponent},
-  {path: '**', component: HomeComponent}
+  {path: '**', redirectTo: '/home', pathMatch: 'full'}
 ];
 
 @NgModule({
