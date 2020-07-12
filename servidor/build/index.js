@@ -19,6 +19,7 @@ const usuarioRoutes_1 = __importDefault(require("./routes/usuarioRoutes"));
 const asistenciaRoutes_1 = __importDefault(require("./routes/asistenciaRoutes"));
 var bodyParser = require('body-parser');
 var app = express_1.default();
+//app.use(cors);
 //difinicion de la clase para el lado del servidor 
 class Server {
     constructor() {

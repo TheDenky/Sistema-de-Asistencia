@@ -17,13 +17,178 @@
                       <div class="col-sm-10">
                           <div class="form-group">
                               <label for="email">Nombres<span class="kv-reqd">*</span></label>
-                              <input type="email" class="form-control" name="email" required>
+                              <input type="text" class="form-control" name="name" value="{{unapersona.nombPers}}" required>
                             </div>
                       </div>
                       <div class="col-sm-10">
                           <div class="form-group">
                               <label for="pwd">DNI<span class="kv-reqd">*</span></label>
-                              <input type="password" class="form-control" name="pwd" required>
+                              <input type="text" class="form-control" name="pwd" value="{{unapersona.dniPers}}" required>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-10">
+                          <div class="form-group">
+                              <label for="fname">Apellido paterno</label>
+                              <input type="text" class="form-control" name="fname" value="{{unapersona.apelPatePers}}" required>
+                          </div>
+                      </div>
+                      <div class="col-sm-10">
+                        <div class="form-group">
+                            <label for="lname">Apellido materno</label>
+                            <input type="text" class="form-control" name="lname" value="{{unapersona.apelMatePers}}" required>
+                        </div>
+                    </div>
+                      <div class="col-sm-10">
+                          <div class="form-group">
+                              <label for="lname">Jornada Laboral</label>
+                              <input type="number" class="form-control" name="lname" value="{{unapersona.jornLaboPers}}" required>
+                          </div>
+                      </div>
+                      <div class="col-sm-10">
+                        <div class="form-group">
+                            <label for="lname">Cargo</label>
+                            <select type="text" class="form-control" name="lname" value="{{unapersona.cargPers}}" required>
+                              <option selected>Seleccionar cargo</option>
+                              <option >Director</option>
+                              <option >Docente</option>
+                              <option >Administrativo</option>
+                              <option >Auxiliar</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-10">
+                      <div class="form-group">
+                          <label for="lname">Tipo de Contrato</label>
+                          <select type="text" class="form-control" name="lname" value="{{unapersona.contLaboPers}}" required>
+                            <option selected>Seleccione el contrato</option>
+                            <option >NOMBRADO</option>
+                            <option >CONTRATADO</option>
+                          </select>
+                      </div>
+                  </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-6">
+                      <label>Vista Previa</label>
+                        <div class="kv-avatar">
+                          <img src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg" alt="" height="180">
+                            <div class="file-loading">
+                              <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+                                <label class="custom-file-label" for="customFileLang">Seleccionar foto</label>
+                              </div>
+                              
+                             
+                            </div>
+                        </div>
+                    </div>
+                      
+                  </div>
+              </div>
+          </div>
+      </form>
+      <div id="kv-avatar-errors-1" class="center-block" style="width:800px;display:none"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-outline-success" >Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+ 
+
+<div class="row">
+  <div class="col">
+    <input class="form-control" matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar Personal">
+  </div>
+  <div class="col">
+    <button type="button" class="btn btn-outline-success btn-block" 
+    data-toggle="modal" data-target="#exampleModalEmpty">Agregar Personal <i class="fas fa-plus"></i></button>
+  </div>
+</div>
+  
+<br>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    
+    <ng-container matColumnDef="dniPers">
+      <th mat-header-cell *matHeaderCellDef> DNI </th>
+      <td mat-cell *matCellDef="let element"> {{element.dniPers}} </td>
+    </ng-container>
+    <ng-container matColumnDef="nombPers">
+      <th mat-header-cell *matHeaderCellDef> Nombres </th>
+      <td mat-cell *matCellDef="let element"> {{element.nombPers}} </td>
+    </ng-container>
+    <ng-container matColumnDef="apelPatePers">
+      <th mat-header-cell *matHeaderCellDef> Apellido Paterno </th>
+      <td mat-cell *matCellDef="let element"> {{element.apelPatePers}} </td>
+    </ng-container>
+    <ng-container matColumnDef="apelMatePers">
+      <th mat-header-cell *matHeaderCellDef> Apellido Materno </th>
+      <td mat-cell *matCellDef="let element"> {{element.apelMatePers}} </td>
+    </ng-container>
+    <ng-container matColumnDef="cargPers">
+      <th mat-header-cell *matHeaderCellDef> Cargo</th>
+      <td mat-cell *matCellDef="let element"> {{element.cargPers}} </td>
+    </ng-container>
+    <ng-container matColumnDef="contLaboPers">
+      <th mat-header-cell *matHeaderCellDef> Contrato </th>
+      <td mat-cell *matCellDef="let element"> {{element.contLaboPers}} </td>
+    </ng-container>
+    <ng-container matColumnDef="jornLaboPers">
+      <th mat-header-cell *matHeaderCellDef> Jornada </th>
+      <td mat-cell *matCellDef="let element"> {{element.jornLaboPers}} </td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="ACTION">
+      <th mat-header-cell *matHeaderCellDef> Editar </th>
+      <td mat-cell *matCellDef="let element">
+        <button type="button" class="btn btn-outline-warning" (click)="obtenerUnPersonal(element.idPers)"
+        data-toggle="modal" data-target="#exampleModal"> <i class="fas fa-edit"></i></button> 
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+
+<!--Agregar nuevo modal vacio #ExampleModalEmpty#-->
+
+<div class="modal fade" id="exampleModalEmpty" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Registro Personal</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form form-vertical alert alert-success">
+          <div class="row">
+              
+              <div class="col-sm-10">
+                  <div class="row">
+                      <div class="col-sm-10">
+                          <div class="form-group">
+                              <label for="email">Nombres<span class="kv-reqd">*</span></label>
+                              <input type="text" class="form-control" name="name" required>
+                            </div>
+                      </div>
+                      <div class="col-sm-10">
+                          <div class="form-group">
+                              <label for="pwd">DNI<span class="kv-reqd">*</span></label>
+                              <input type="text" class="form-control" name="pwd" required>
                           </div>
                       </div>
                   </div>
@@ -43,9 +208,7 @@
                       <div class="col-sm-10">
                           <div class="form-group">
                               <label for="lname">Jornada Laboral</label>
-                              <select type="text" class="form-control" name="lname" required>
-                                <option selected>Seleccione la jornada</option>
-                              </select>
+                              <input type="number" class="form-control" name="lname"  required>
                           </div>
                       </div>
                       <div class="col-sm-10">
@@ -53,14 +216,20 @@
                             <label for="lname">Cargo</label>
                             <select type="text" class="form-control" name="lname" required>
                               <option selected>Seleccionar cargo</option>
+                              <option >Director</option>
+                              <option >Docente</option>
+                              <option >Administrativo</option>
+                              <option >Auxiliar</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-sm-10">
                       <div class="form-group">
                           <label for="lname">Tipo de Contrato</label>
-                          <select type="text" class="form-control" name="lname" required>
+                          <select type="text" class="form-control" name="lname"  required>
                             <option selected>Seleccione el contrato</option>
+                            <option >NOMBRADO</option>
+                            <option >CONTRATADO</option>
                           </select>
                       </div>
                   </div>
@@ -93,78 +262,4 @@
       </div>
     </div>
   </div>
-</div>
-
- 
-
-<div class="row">
-  <div class="col">
-    <input class="form-control" matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar Personal">
-  </div>
-  <div class="col">
-    <button type="button" class="btn btn-outline-success btn-block" 
-    data-toggle="modal" data-target="#exampleModal">Agregar Personal <i class="fas fa-plus"></i></button>
-  </div>
-</div>
-  
-<br>
-
-<div class="mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource">
-
-    
-    <ng-container matColumnDef="DNI">
-      <th mat-header-cell *matHeaderCellDef> DNI </th>
-      <td mat-cell *matCellDef="let element"> {{element.DNI}} </td>
-    </ng-container>
-
-    
-    <ng-container matColumnDef="Nombres">
-      <th mat-header-cell *matHeaderCellDef> Nombres </th>
-      <td mat-cell *matCellDef="let element"> {{element.Nombres}} </td>
-    </ng-container>
-
-    
-    <ng-container matColumnDef="apepat">
-      <th mat-header-cell *matHeaderCellDef> Apellido Paterno </th>
-      <td mat-cell *matCellDef="let element"> {{element.apepat}} </td>
-    </ng-container>
-
-    
-    <ng-container matColumnDef="apemat">
-      <th mat-header-cell *matHeaderCellDef> Apellido Materno </th>
-      <td mat-cell *matCellDef="let element"> {{element.apemat}} </td>
-    </ng-container>
-
-    
-    <ng-container matColumnDef="Cargo">
-      <th mat-header-cell *matHeaderCellDef> Cargo</th>
-      <td mat-cell *matCellDef="let element"> {{element.Cargo}} </td>
-    </ng-container>
-
-   
-    <ng-container matColumnDef="Contrato">
-      <th mat-header-cell *matHeaderCellDef> Contrato </th>
-      <td mat-cell *matCellDef="let element"> {{element.Contrato}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="Jornada">
-      <th mat-header-cell *matHeaderCellDef> Jornada </th>
-      <td mat-cell *matCellDef="let element"> {{element.Jornada}} </td>
-    </ng-container>
-
-    
-    <ng-container matColumnDef="ACTION">
-      <th mat-header-cell *matHeaderCellDef> Editar </th>
-      <td mat-cell *matCellDef="let element">
-        <button type="button" class="btn btn-outline-warning" 
-        data-toggle="modal" data-target="#exampleModal"> <i class="fas fa-edit"></i></button> 
-        </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div>

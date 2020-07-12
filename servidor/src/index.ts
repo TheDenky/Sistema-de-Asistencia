@@ -15,8 +15,9 @@ import asistenciaRoutes from './routes/asistenciaRoutes';
 import { asistenciaController } from './Controllers/asistenciaController';
 import { usuarioController } from './Controllers/usuarioController';
 
-var bodyParser = require('body-parser')
-var app = express()
+var bodyParser = require('body-parser');
+var app = express();
+//app.use(cors);
 
 
 //difinicion de la clase para el lado del servidor 
@@ -32,7 +33,7 @@ class Server{
     }
     //configurar la propiedad app
     config():void{
-        this.app.set('port',process.env.PORT||3000)
+        this.app.set('port',process.env.PORT||3000);
     }
     //difinir las rutas detscl servidor 
     routes():void{
@@ -50,7 +51,7 @@ class Server{
         this.app.use('/api/usuario', usuarioRoutes);
         this.app.use(morgan('dev'));
         this.app.use(cors());
- 
+        
     }
     //iniciar el servidor
     start():void{
@@ -60,6 +61,7 @@ class Server{
         });
     }
 }
+
 //ejcutar la clase
  const server=new Server ();
  server.start();

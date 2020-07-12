@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +22,7 @@ import { LicenciaComponent } from './components/tramite/tramites/licencia/licenc
 import { VacacionesComponent } from './components/tramite/tramites/vacaciones/vacaciones.component';
 import { JustificacionComponent } from './components/tramite/tramites/justificacion/justificacion.component';
 
-
+import { PersonalService } from './services/personal.service';
 
 @NgModule({
   declarations: [
@@ -46,9 +47,12 @@ import { JustificacionComponent } from './components/tramite/tramites/justificac
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    MatTabsModule
+    MatTabsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    PersonalService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
