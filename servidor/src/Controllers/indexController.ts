@@ -1,12 +1,11 @@
 import {Request,Response} from 'express';
 class IndexController{
 
-index (req:Request,res:Response){
+     public index (req:Request,res:Response){
      
-     res.json({text:'API IS  /API/GAMES'})
+     res.json({text:'API IS /signup'})
      
-          }
+     }
          
-   }
-   new IndexController();
-   export const indexController=new IndexController();
+}
+export const indexController=new IndexController();

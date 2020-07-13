@@ -1,6 +1,6 @@
 // Definir un enrutador
 import {Router} from  'express';
-import pruebaController from '../Controllers/pruebaController'
+import { indexController } from '../Controllers/indexController';
 
 class IndexRoutes{
     public router:Router =Router();
@@ -8,8 +8,7 @@ class IndexRoutes{
     this.config(); 
     }
     config():void{
-        this.router.get('/',pruebaController.index);
-
+        this.router.get('/',indexController.index);
     }
 }
 

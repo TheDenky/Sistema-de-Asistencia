@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule, FormGroup, FormBuilder, Validators} from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavegadorComponent } from './components/navegador/navegador.component';
@@ -21,7 +24,10 @@ import { LicenciaComponent } from './components/tramite/tramites/licencia/licenc
 import { VacacionesComponent } from './components/tramite/tramites/vacaciones/vacaciones.component';
 import { JustificacionComponent } from './components/tramite/tramites/justificacion/justificacion.component';
 
-
+import {LoginService} from './services/login.service';
+import { SignupComponent } from './components/signup/signup.component';
+import { AuthenticationService } from './services/authentication.service';
+import { AlertService } from './services/alert.service';
 
 @NgModule({
   declarations: [
@@ -36,19 +42,30 @@ import { JustificacionComponent } from './components/tramite/tramites/justificac
     PermisoComponent,
     LicenciaComponent,
     VacacionesComponent,
-    JustificacionComponent
+    JustificacionComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule,
+    // FormGroup,
+    // FormBuilder,
+    // Validators,
 
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
     MatTabsModule
   ],
-  providers: [],
+  providers: [
+    LoginService,
+    AuthenticationService,
+    AlertService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

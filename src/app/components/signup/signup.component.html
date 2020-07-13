@@ -1,0 +1,20 @@
+<div class="col-md-4 offset-md-2 mx-auto">
+    <div class="card">
+        <div class="card-body">
+            <form  method="POST">
+                <div class="form-group">
+                    <input type="text" name="username" [(ngModel)]="user.usuaUsua" placeholder="Username" class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" [(ngModel)]="user.passUsua" placeholder="Password" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="estado" [(ngModel)]="user.estaUsua" placeholder="Estado" class="form-control">
+                </div>
+                <button class="btn btn-success btn-block" (click)="saveNewUser()" >
+                    Guardar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

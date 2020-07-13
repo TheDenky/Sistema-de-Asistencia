@@ -11,9 +11,11 @@ import { PermisoComponent } from './components/tramite/tramites/permiso/permiso.
 import { JustificacionComponent } from './components/tramite/tramites/justificacion/justificacion.component';
 import { VacacionesComponent } from './components/tramite/tramites/vacaciones/vacaciones.component';
 
+import {SignupComponent} from './components/signup/signup.component';
 
 const routes: Routes = [
-  {path: "login", component: LoginComponent},
+  {path: "login", component: LoginComponent, pathMatch: 'full'},
+  {path: "signup", component: SignupComponent},
   {path: "personal", component: PersonalComponent},
   {path: "institucion", component: InstitucionComponent},
   {path: "registro", component: RegistroComponent},
