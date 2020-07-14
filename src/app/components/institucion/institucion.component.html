@@ -17,16 +17,16 @@
                  <main class="container">
                    <form>
                       <div class="form-group">
-                            <input type="number" class="form-control" placeholder="Código Modular">
+                            <input type="number" class="form-control" placeholder="Código Modular" name="Codigo" value="{{insti.codiModuInst}}">
                       </div>
                       <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Intitución">
+                            <input type="text" class="form-control" placeholder="Intitución" value="{{insti.nombInst}}">
                       </div>
                       <div class="form-group">
-                        <input type="number" class="form-control" placeholder="Número">
+                        <input type="number" class="form-control" placeholder="Número" value="{{insti.numeInst}}">
                       </div>
                       <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Dirección">
+                            <input type="text" class="form-control" placeholder="Dirección" value="{{insti.direInst}}">
                       </div>
                       <div class="form-group col-md-12">
                         <select id="inputState" class="form-control">
@@ -35,20 +35,20 @@
                         </select>
                       </div>
                       <div class="form-group col-md-12">
-                        <select id="inputState" class="form-control">
+                        <select id="inputState" class="form-control" >
                           <option selected>Provincia...</option>
                           <option>...</option>
                         </select>
                       </div>
                       <div class="form-group col-md-12">
-                        <select id="inputState" class="form-control">
+                        <select id="inputState" class="form-control" >
                           <option selected>Distrito...</option>
-                          <option>...</option>
+                          <option value="{{insti.idDist}}">...</option>
                         </select>
                       </div>
                       <div class="form-group col-md-14">
                         <select id="inputState" class="form-control">
-                          <option selected>Nivel...</option>
+                          <option selected value="{{insti.niveEduInst}}">{{insti.niveEduInst}}</option>
                           <option>Primaria</option>
                           <option>Secundaria</option>
                           <option>Superior</option>
@@ -56,7 +56,7 @@
                       </div>
                       <div class="form-group col-md-14">
                         <select id="inputState" class="form-control">
-                          <option selected>Modalidad...</option>
+                          <option selected value="{{insti.modaInst}}">{{insti.modaInst}}</option>
                           <option>EBR</option>
                           <option>CEBA</option>
                           <option>CEPRO</option>
@@ -64,7 +64,7 @@
                       </div>
                       <div class="form-group col-md-14">
                         <select id="inputState" class="form-control">
-                          <option selected>Turno...</option>
+                          <option selected value="{{insti.turnInst}}">{{insti.turnInst}}</option>
                           <option>Mañana</option>
                           <option>Tarde</option>
                           <option>Noche</option>
@@ -78,7 +78,7 @@
  
         <div class="modal-footer">
           <button class="btn btn-outline-secondary" type="button" data-dismiss="modal"> Cerrar </button>
-          <button class="btn btn-outline-success" type="button"> Guardar </button>
+          <button class="btn btn-outline-success" type="button">Guardar</button>
         </div>
       </div>
     </div>
@@ -102,52 +102,52 @@
   <table mat-table [dataSource]="dataSource">
 
     <!-- Codigo Modular Column -->
-    <ng-container matColumnDef="codModular">
+    <ng-container matColumnDef="codiModuInst">
       <th mat-header-cell *matHeaderCellDef> Codigo Modular </th>
-      <td mat-cell *matCellDef="let element"> {{element.codModular}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.codiModuInst}} </td>
     </ng-container>
 
     <!-- Nombre Column -->
-    <ng-container matColumnDef="nombre">
+    <ng-container matColumnDef="nombInst">
       <th mat-header-cell *matHeaderCellDef> Nombre </th>
-      <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.nombInst}} </td>
     </ng-container>
 
     <!-- Direccion  Column -->
-    <ng-container matColumnDef="direccion">
-      <th mat-header-cell *matHeaderCellDef> Direccion </th>
-      <td mat-cell *matCellDef="let element"> {{element.direccion}} </td>
+    <ng-container matColumnDef="numeInst">
+      <th mat-header-cell *matHeaderCellDef> Numero </th>
+      <td mat-cell *matCellDef="let element"> {{element.numeInst}} </td>
     </ng-container>
 
     <!-- Numero Column -->
-    <ng-container matColumnDef="numero">
-      <th mat-header-cell *matHeaderCellDef> Numero </th>
-      <td mat-cell *matCellDef="let element"> {{element.numero}} </td>
+    <ng-container matColumnDef="niveEduInst">
+      <th mat-header-cell *matHeaderCellDef> Nivel </th>
+      <td mat-cell *matCellDef="let element"> {{element.niveEduInst}} </td>
     </ng-container>
 
     <!-- Nivel Column -->
-    <ng-container matColumnDef="nivel">
-      <th mat-header-cell *matHeaderCellDef> Nivel </th>
-      <td mat-cell *matCellDef="let element"> {{element.nivel}} </td>
+    <ng-container matColumnDef="modaInst">
+      <th mat-header-cell *matHeaderCellDef> Modalidad </th>
+      <td mat-cell *matCellDef="let element"> {{element.modaInst}} </td>
     </ng-container>
 
     <!-- Modalidad Column -->
-    <ng-container matColumnDef="modalidad">
-      <th mat-header-cell *matHeaderCellDef> Modalidad </th>
-      <td mat-cell *matCellDef="let element"> {{element.modalidad}} </td>
+    <ng-container matColumnDef="turnInst">
+      <th mat-header-cell *matHeaderCellDef> Turno </th>
+      <td mat-cell *matCellDef="let element"> {{element.turnInst}} </td>
     </ng-container>
 
     <!-- Turno Column -->
-    <ng-container matColumnDef="turno">
-      <th mat-header-cell *matHeaderCellDef> Turno </th>
-      <td mat-cell *matCellDef="let element"> {{element.turno}} </td>
+    <ng-container matColumnDef="direInst">
+      <th mat-header-cell *matHeaderCellDef> Direccion </th>
+      <td mat-cell *matCellDef="let element"> {{element.direInst}} </td>
     </ng-container>
 
     <!-- action Column -->
     <ng-container matColumnDef="ACTION">
       <th mat-header-cell *matHeaderCellDef> EDITAR </th>
       <td mat-cell *matCellDef="let element">
-        <button type="button" class="btn btn-outline-warning" 
+        <button type="button" class="btn btn-outline-warning" (click)="instob(element.idInst)"
         data-toggle="modal" data-target="#ventanaModal"> <i class="fas fa-edit"></i></button> 
         </td>
     </ng-container>

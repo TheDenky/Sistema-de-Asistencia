@@ -82,13 +82,15 @@
      <th scope="col">Tardanza</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-     <th scope="row">1</th>
-     <td>76650545</td>
-     <td>Evangely</td>
-     <td>Lovolace</td>
-     <td>Flowers</td>
+<tbody  >
+
+  <tr  *ngFor="let regi of registro" >
+  
+     <th scope="row">{{regi.idPers}}</th>
+     <td>{{regi.dniPers}}</td>
+     <td>{{regi.nombPers}}</td>
+     <td>{{regi.apelPatePers}}</td>
+     <td>{{regi.apelMatePers}}</td>
      <td><div>
           <input type="date" name="bday" max="3000-12-31" 
           min="1000-01-01" class="form-control">
@@ -101,25 +103,7 @@
      </button></td>
 
 </tr>
-<tr>
-     <th scope="row">2</th>
-     <td>76650546</td>
-     <td>Eli</td>
-     <td>Flores</td>
-     <td>Huamani</td>
-     <td><div>
-          <input type="date" name="bday" max="3000-12-31" 
-          min="1000-01-01" class="form-control">
-         </div></td>
-     <td><div class="form-check form-check-inline">
-           <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"></div>
-     </td>
-     <td>                  
-       <button class="btn btn-success" data-toggle="modal" data-target="#ventanaModal">
-         Tardanza
-     </button></td>
 
-</tr>
 
 
 

@@ -17,7 +17,7 @@ const database_1 = __importDefault(require("../database"));
 class VacacionesController {
     listarVacaciones(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const licenciaLista = yield database_1.default.query('SELECT * FROM vacaciones');
+            const licenciaLista = yield database_1.default.query('SELECT idVaca,dnipers,fechinicVaca,fechFinVaca,motiVaca,descVaca FROM vacaciones c,personal p WHERE c.idpers = p.idpers');
             res.json(licenciaLista);
         });
     }

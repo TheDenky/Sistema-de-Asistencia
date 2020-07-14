@@ -17,7 +17,7 @@ const database_1 = __importDefault(require("../database"));
 class JustificacionController {
     listarJustificacion(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const institucionLista = yield database_1.default.query('SELECT * FROM justificacion');
+            const institucionLista = yield database_1.default.query('SELECT idjust, p.dnipers, decrpJust,fechJust,justJust FROM justificacion c,personal p WHERE c.idpers = p.idpers');
             res.json(institucionLista);
         });
     }

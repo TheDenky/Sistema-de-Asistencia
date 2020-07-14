@@ -16,20 +16,20 @@
   
       
       <ng-container matColumnDef="IdPers">
-        <th mat-header-cell *matHeaderCellDef> Id persona </th>
-        <td mat-cell *matCellDef="let element"> {{element.IdPers}} </td>
+        <th mat-header-cell *matHeaderCellDef> DNI </th>
+        <td mat-cell *matCellDef="let element"> {{element.dnipers}} </td>
       </ng-container>
   
       
       <ng-container matColumnDef="fechInicVaca">
         <th mat-header-cell *matHeaderCellDef> Fecha Inicio </th>
-        <td mat-cell *matCellDef="let element"> {{element.fechInicVaca | date}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.fechinicVaca | date}} </td>
       </ng-container>
   
       
       <ng-container matColumnDef="fechFinVaca">
         <th mat-header-cell *matHeaderCellDef> Fecha Fin </th>
-        <td mat-cell *matCellDef="let element"> {{element.fechFinVaca}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.fechFinVaca | date}} </td>
       </ng-container>
   
       
@@ -40,7 +40,7 @@
   
       
       <ng-container matColumnDef="descVaca">
-        <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+        <th mat-header-cell *matHeaderCellDef> Descuento </th>
         <td mat-cell *matCellDef="let element"> {{element.descVaca}} </td>
       </ng-container>
       

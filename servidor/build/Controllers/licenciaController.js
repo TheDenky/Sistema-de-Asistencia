@@ -17,7 +17,7 @@ const database_1 = __importDefault(require("../database"));
 class LicenciaController {
     listarLicencia(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const licenciaLista = yield database_1.default.query('SELECT * FROM licencia');
+            const licenciaLista = yield database_1.default.query('SELECT idlice,dnipers,tipoLice,motiLice,fechIniLice,fechFinLice,obseLice,docuLice FROM licencia c,personal p WHERE c.idpers = p.idpers');
             res.json(licenciaLista);
         });
     }

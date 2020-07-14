@@ -17,7 +17,7 @@ const database_1 = __importDefault(require("../database"));
 class PermisoController {
     listarPermiso(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const permisoLista = yield database_1.default.query('SELECT * FROM permiso');
+            const permisoLista = yield database_1.default.query('SELECT idPerm,dnipers,horaPerm,minutoPerm,fechaPerm,obsePerm,motiPerm,docuPerm FROM permiso c,personal p WHERE c.idpers = p.idpers');
             res.json(permisoLista);
         });
     }

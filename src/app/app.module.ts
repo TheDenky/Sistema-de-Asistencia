@@ -23,6 +23,9 @@ import { VacacionesComponent } from './components/tramite/tramites/vacaciones/va
 import { JustificacionComponent } from './components/tramite/tramites/justificacion/justificacion.component';
 
 import { PersonalService } from './services/personal.service';
+import { InstitucionService } from './services/institucion.service';
+import { RegistroService } from './services/registro.service';
+  import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,9 @@ import { PersonalService } from './services/personal.service';
     HttpClientModule
   ],
   providers: [
-    PersonalService
+    PersonalService, 
+    InstitucionService,
+    RegistroService
   ],
   bootstrap: [AppComponent]
 })

@@ -13,11 +13,11 @@
   
 <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource">
-  
       
-      <ng-container matColumnDef="IdPers">
-        <th mat-header-cell *matHeaderCellDef> Id persona </th>
-        <td mat-cell *matCellDef="let element"> {{element.IdPers}} </td>
+      
+      <ng-container matColumnDef="dnipers">
+        <th mat-header-cell *matHeaderCellDef> DNI </th>
+        <td mat-cell *matCellDef="let element"> {{element.dnipers}} </td>
       </ng-container>
   
       
@@ -35,13 +35,13 @@
       
       <ng-container matColumnDef="fechInicLice">
         <th mat-header-cell *matHeaderCellDef> Fecha Inicio </th>
-        <td mat-cell *matCellDef="let element"> {{element.fechInicLice | date }} </td>
+        <td mat-cell *matCellDef="let element"> {{element.fechIniLice | date }} </td>
       </ng-container>
   
       
       <ng-container matColumnDef="fechFinLice">
         <th mat-header-cell *matHeaderCellDef> Fecha Fin </th>
-        <td mat-cell *matCellDef="let element"> {{element.fechFinLice }} </td>
+        <td mat-cell *matCellDef="let element"> {{element.fechFinLice | date }} </td>
       </ng-container>
   
      
@@ -62,14 +62,14 @@
         <th mat-header-cell *matHeaderCellDef> Editar </th>
         <td mat-cell *matCellDef="let element">
           <button type="button" class="btn btn-outline-warning" 
-          data-toggle="modal" data-target="#exampleModal"> <i class="fas fa-edit"></i></button> 
+          data-toggle="modal" data-target="#ventanaModal2"> <i class="fas fa-edit"></i></button> 
         </td>
       </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-  
+    
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
   </div>
   

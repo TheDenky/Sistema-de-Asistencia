@@ -3,21 +3,12 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { Justificacion } from 'src/app/models/justificacion';
+import { JustificacionService } from 'src/app/services/tramites/justificacion.service';
+import { report } from 'process';
 
-export interface PeriodicElement {
-  IdPers: string;
-  descJust: string;
-  fechJust: string;
-  docuJust: File;
-}
-const ELEMENT_DATA: PeriodicElement[] = [
-  {IdPers: '31254532', descJust: 'descripcion de justificacion 1', fechJust: new Date("2019-06-02").toDateString(), docuJust: null},
-  {IdPers: '56215642', descJust: 'descripcion de justificacion 2', fechJust: new Date("2020-08-15").toDateString(), docuJust: null},
-  {IdPers: '26355256', descJust: 'descripcion de justificacion 3', fechJust: new Date("2019-12-20").toDateString(), docuJust: null},
-  {IdPers: '52632562', descJust: 'descripcion de justificacion 4', fechJust: new Date("2020-08-30").toDateString(), docuJust: null},
-  {IdPers: '14526685', descJust: 'descripcion de justificacion 5', fechJust: new Date("2019-06-15").toDateString(), docuJust: null},
-  {IdPers: '87845212', descJust: 'descripcion de justificacion 6', fechJust: new Date("2019-11-10").toDateString(), docuJust: null},
-];
+  
+
 
 @Component({
   selector: 'app-justificacion',
@@ -25,18 +16,27 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./justificacion.component.css']
 })
 export class JustificacionComponent implements OnInit {
-
-  displayedColumns: string[]  = ['IdPers', 'descJust', 'fechJust', 'docuJust', 'ACTION'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+ELEMENT_DATA : Justificacion[];
+  displayedColumns: string[]  = ['dnipers', 'decrpJust', 'fechJust', 'docuJust', 'ACTION'];
+  dataSource = new MatTableDataSource<Justificacion>(this.ELEMENT_DATA);
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor() { }
+  constructor(private Just:JustificacionService) { }
 
   ngOnInit(): void {
+    this.objust();
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
+
+  public objust(){
+    let just=this.Just.getjusti();
+    just.subscribe(
+      report=>this.dataSource.data = report as Justificacion[]
+    );
+  }
+
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
