@@ -29,6 +29,21 @@ class UsuarioController{
         await pool.query('DELETE FROM usuario WHERE idPers = ?', [id]);
         res.json({message: 'El usuario ha sido borrado'});
     }
+    public async auth(req: Request,res: Response,){
+        const {usuaUsua, passUsua} = req.body;
+        const user = await pool.query('SELECT * FROM usuario WHERE usuaUsua = ? and passUsua=?', [usuaUsua, passUsua]);
+        const one = user[0];
+        if(one){
+           console.log(one);
+           res.send('Usuario si existe');
+           console.log("Usuario si existe");
+            //return res.json(user[0]); 
+            
+        }else{
+            res.status(404).json({text: 'El usuario no existe'});
+            console.log("Usuario no existe");
+        }
+    }
 }
 
 export const usuarioController = new UsuarioController;
